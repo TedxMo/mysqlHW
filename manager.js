@@ -219,5 +219,11 @@ function addNew(){
 }
 
 function specific(){
-
+	var query = "SELECT cat_id, cat_name,overhead_cost,product_sales , product_sales - overhead_cost AS final_profit FROM categories";
+	connection.query(query, function(err, res) {
+		for (var i = 0; i < res.length; i++) {
+			console.log("\nID: " + res[i].cat_id + " || Name: " + res[i].cat_name + " || Overhead Cost: " + res[i].overhead_cost+ " || Product Sales: " + res[i].product_sales + " || Total Profit: " + res[i].final_profit);
+		}
+	});
+	menu();
 }
