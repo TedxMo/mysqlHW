@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>db_inventory</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>7568208183975692414</string>
+			<key>name</key>
+			<string>localhost</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClZjYXRfaWTSHh8tLl8Q
+			D05TTXV0YWJsZVN0cmluZ6MtLyNYTlNTdHJpbmfSHh8xMl5OU011
+			dGFibGVBcnJheaMxMyNXTlNBcnJhedIeHyI1oiIjXxAPTlNLZXll
+			ZEFyY2hpdmVy0Tg5VGRhdGGAAQAIABEAGgAjAC0AMgA3AEUASwBS
+			AFoAZQBsAHAAcgB0AHYAegB8AH4AgACCAIcAjACRALoAwQDCAMMA
+			xQDKANUA3gD0APgBBQEOARMBFQEXARkBHgEoASoBMQE2AUgBTAFV
+			AVoBaQFtAXUBegF9AY8BkgGXAAAAAAAAAgEAAAAAAAAAOgAAAAAA
+			AAAAAAAAAAAAAZk=
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {694, 450}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>DROP DATABASE IF EXISTS db_inventory;
+CREATE database db_inventory;
+
+USE db_inventory;
+
+CREATE TABLE product (
+  id INT NOT NULL AUTO_INCREMENT,
+  product_name VARCHAR(100) NULL,
+  brand VARCHAR(100) NULL,
+  category VARCHAR(100) NULL,
+  stock_quantity INT NULL,
+  price DECIMAL(10,2) NULL,
+  PRIMARY KEY (id)
+);
+
+SELECT * FROM product WHERE product_name ='wired mouse' AND 'lenovo' AND category = 'computer accessories'
+select * from product where stock_quantity &lt;=10
+
+insert into product(product_name,brand,category,price,stock_quantity) values ('wired mouse','lenovo','computer accessories',1,2)
+,('wireless mouse','lenovo','computer accessories',3,4)
+,('keyboard','lenovo','computer accessories',5,6)
+,('wireless keyboard + mouse','logitech','computer accessories',7,8)
+,('24 inch Monitors','samsung','computer accessories',9,10)
+,('usb one-sided wired headphone','logitech','computer accessories',11,12)
+,('usb full wired headphone','logitech','computer accessories',13,14)
+,('full 3.0 usb dock','lenovo','computer accessories',15,16)
+,('usb-c doc','lenovo','computer accessories',17,18)
+,('3.0 usb double dvi dock','lenovo','computer accessories',19,20)
+
+CREATE TABLE categories (
+  cat_id INT NOT NULL AUTO_INCREMENT,
+  cat_name VARCHAR(100) NULL,
+  overhead_cost DECIMAL(10,2) NULL,
+  product_sales DECIMAL(10,2) NULL,
+  total_profit DECIMAL(10,2) NULL,
+  PRIMARY KEY (cat_id)
+);
+
+select * from categories where cat_name = 'computer accessories'
+ 
+insert into categories(cat_name,overhead_cost,product_sales,total_profit) values ('computer accessories',100000,1000,-99000)
+,('phone accessories',50000,500,-49500)
+,('display accessories',90000,900,-89100)
+
+Update categories Set product_sales = 1000, total_profit = -99000  WHERE cat_name = 'computer accessories'
+</string>
+			<key>table</key>
+			<string>categories</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>200</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>SELECT * FROM product</string>
+		<string>select * from categories where cat_name = 'computer accessories'</string>
+		<string>select cat_id, cat_name from categories where cat_name = 'computer accessories'</string>
+		<string>select cat_id cat_name from categories where cat_name = 'computer accessories'</string>
+		<string>select * from categories</string>
+		<string>Update categories Set product_sales = 1000, total_profit = -99000  WHERE cat_name = 'computer accessories'</string>
+		<string>Update categories Set product_sales = 1000, total_profit = -98999  WHERE cat_name = 'computer accessories'</string>
+		<string>Update categories Set product_sales = 1000 WHERE cat_name = 'computer accessories'</string>
+		<string>select * from categories where</string>
+		<string>Update categories Set product_sales = 1001 WHERE cat_name = 'computer accessories'</string>
+		<string>Update categories Set product_sales = 1001 total_profit = -98999 WHERE cat_name = 'computer accessories'</string>
+		<string>insert into categories(cat_name,overhead_cost,product_sales,total_profit) values ('computer accessories',100000,1000,-99000)
+,('phone accessories',50000,500,-49500)
+,('display accessories',90000,900,-89100)</string>
+		<string>CREATE TABLE categories (
+  cat_id INT NOT NULL AUTO_INCREMENT,
+  cat_name VARCHAR(100) NULL,
+  overhead_cost DECIMAL(10,2) NULL,
+  product_sales DECIMAL(10,2) NULL,
+  total_profit DECIMAL(10,2) NULL,
+  PRIMARY KEY (cat_id)
+)</string>
+		<string>CREATE TABLE categories (
+  cat_id INT NOT NULL AUTO_INCREMENT,
+  cat_name VARCHAR(100) NULL,
+  overhead_cost DECIMAL(10,2) NULL,
+  product_sales DECIMAL(10,2) NULL,
+  total_profit DECIMAL(10,2) NULL,
+  PRIMARY KEY (id)
+)</string>
+		<string>select * from product</string>
+		<string>select * from product where stock_quantity &lt;=10</string>
+		<string>select * from product where stock_quantity &lt;=10
+
+insert into product(product_name,brand,category,price,stock_quantity) values ('wired mouse','lenovo','computer accessories',1,2)
+,('wireless mouse','lenovo','computer accessories',3,4)
+,('keyboard','lenovo','computer accessories',5,6)
+,('wireless keyboard + mouse','logitech','computer accessories',7,8)
+,('24 inch Monitors','samsung','computer accessories',9,10)
+,('usb one-sided wired headphone','logitech','computer accessories',11,12)
+,('usb full wired headphone','logitech','computer accessories',13,14)
+,('full 3.0 usb dock','lenovo','computer accessories',15,16)
+,('usb-c doc','lenovo','computer accessories',17,18)
+,('3.0 usb double dvi dock','lenovo','computer accessories',19,20)</string>
+		<string>select * from product where stock_quantity &lt;=5</string>
+		<string>select * from product
+
+insert into product(product_name,brand,category,price,stock_quantity) values ('wired mouse','lenovo','computer accessories',1,2)
+,('wireless mouse','lenovo','computer accessories',3,4)
+,('keyboard','lenovo','computer accessories',5,6)
+,('wireless keyboard + mouse','logitech','computer accessories',7,8)
+,('24 inch Monitors','samsung','computer accessories',9,10)
+,('usb one-sided wired headphone','logitech','computer accessories',11,12)
+,('usb full wired headphone','logitech','computer accessories',13,14)
+,('full 3.0 usb dock','lenovo','computer accessories',15,16)
+,('usb-c doc','lenovo','computer accessories',17,18)
+,('3.0 usb double dvi dock','lenovo','computer accessories',19,20)</string>
+		<string>select product_name,brand from product</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.7.19</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
